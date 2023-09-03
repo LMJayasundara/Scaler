@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaler</title>
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section class="container-fluid" id="login_container" style="padding-top: 25vh; display: block;">
+        <section class="row justify-content-center">
+            <form class="form-container col-sm-4" id="loginForm">
+                <div class="form-group">
+                    <h4 class="text-center font-weight-bold">Login</h4>
+                    <label for="InputName">Username</label>
+                    <input type="text" class="form-control" id="InputName" placeholder="Enter User Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="InputPassword">Password</label>
+                    <input type="password" class="form-control" id="InputPassword" placeholder="Enter Password" required>
+                </div>
+                <div class="text-center" style="padding-top: 1vh;">
+                    <input type="submit" name='btn' id="loginBtn" class="btn btn-info col-md-4" value="Login">
+                </div>
+            </form>
+        </section>
+    </section>
+
+    <section class="container-fluid" id="err_container" style="display: none;">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center"
+            style="margin-left: -15px; margin-right: -15px; margin-top: -35px;">
+            <h6 style="color: white">Change COM Port</h6>
+        </nav>
+
+        <div class="d-flex justify-content-center" style="margin-top: 10vh;">
+            <form class="form-container col-sm-4" id="enterPort">
+                <div class="form-group text-center">
+                    <label for="portsDrop"><h4>SELECT COM PORT</h4></label>
+                    <div class="col-sm-12" style="margin-top: 2vh;">
+                        <select class="form-control" id="portsDrop">
+                            <!-- info -->
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12" style="height: 8vh; margin-top: 1vh;">
+                <div class="d-flex justify-content-center" style="margin-top: 1vh;">
+                    <div class="col-sm-1 d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary col-sm-12" id="relaunch">Relaunch</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid" id="home_container" style="display: none;">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center"
+            style="margin-left: -15px; margin-right: -15px; margin-top: -35px;">
+            <h6 style="color: white"> Home</h6>
+        </nav>
+
+        <div id="input_container">
+            <div class="row">
+                <div class="col-sm-4" style="height: 28vh; background-color: #F5F7FA;">
+                    <div class="row sm-4" style="margin-top: 5%;">
+                        <div class="d-inline-flex">
+                            <div class="col-sm-4">
+                                <label for="">PLATE NO:</label>
+                            </div>
+                            <div class="col-sm-8" style="margin-left: 0.8vw; width: 20vw;" id="fetchdrop" >
+                                <select class="form-control" id="itmdes">
+                                    <!-- info -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row sm-4" style="margin-top: 5%;">
+                        <label for="" class="col-sm-4 col-form-label">DRIVER:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control clearable" id="home_DRIVER">
+                        </div>
+                    </div>
+
+                    <div class="row sm-4" style="margin-top: 5%;">
+                        <label for="" class="col-sm-4 col-form-label">CUSTOMER:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control clearable" id="home_CUSTOMER">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="height: 28vh; background-color: #F5F7FA;">
+                    <div class="row sm-4" style="margin-top: 5%;">
+                        <label for="" class="col-sm-4 col-form-label">SUPPLIER:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control clearable" id="home_SUPPLIER">
+                        </div>
+                    </div>
+
+                    <div class="row sm-4" style="margin-top: 5%;">
+                        <label for="" class="col-sm-4 col-form-label">TRANSPOTER:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control clearable" id="home_TRANSPOTER">
+                        </div>
+                    </div>
+
+                    <div class="row sm-4" style="margin-top: 5%;">
+                        <label for="" class="col-sm-4 col-form-label">PRODUCT:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control clearable" id="home_PRODUCT">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="height: 28vh; background-color: #F5F7FA;">
+                    <div class="row sm-4" style="margin-top: 5%;">
+                        <label for="" class="col-sm-4 col-form-label clearable">TICKET NO:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="home_TICKETNO">
+                        </div>
+                    </div>
+
+                    <div class="row sm-4" style="margin-top: 5%;">
+                        <label for="" class="col-sm-4 col-form-label clearable">NOTE:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="home_NOTE">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 d-flex justify-content-center" style="height: 8vh; background-color: #F5F7FA; margin-top: 1vh; align-items: center;">
+                    <div style="display: flex; justify-content: center; gap: 10px;">
+                        <button type="button" class="btn btn-primary" style="flex: 1;" id="home_btnAdd" onclick="">ADD</button>
+                        <button type="button" class="btn btn-warning" style="flex: 1;" id="home_btnClear" onclick="">CLEAR</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-sm mb-0" style="height: 53vh;">
+            <div class="col-sm-8 mb-0" style="height: 53vh; background-color: #F5F7FA; margin-top: 0.5em;">
+                <div style="height: 45vh; overflow: scroll; overflow-x: auto;">
+                    <table class="table table-bordered" style="text-align: center;  margin-top: 0.5em;" id="fechpendingTbl">
+                        <thead class="thead-dark" style="background-color: #2C3034; color: #ffff;">
+                            <tr>
+                                <th class="no-wrap">PLATE NO</th>
+                                <th class="no-wrap">IN DATE</th>
+                                <th class="no-wrap">OUT DATE</th>
+                                <th class="no-wrap">1ST WEIGHT</th>
+                                <th class="no-wrap">2ND WEIGHT</th>
+                                <th class="no-wrap">NET WEIGHT</th>
+                                <th class="no-wrap">DRIVER</th>
+                                <th class="no-wrap">CUSTOMER</th>
+                                <th class="no-wrap">SUPPLIER</th>
+                                <th class="no-wrap">TRANSPOTER</th>
+                                <th class="no-wrap">PRODUCT</th>
+                                <th class="no-wrap">TICKET NO</th>
+                                <th class="no-wrap">NOTE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="pendingTbl">
+                            <!-- info -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 d-flex justify-content-center" style="height: 8vh; background-color: #F5F7FA; margin-top: 1vh; align-items: center;">
+                        <div style="display: flex; justify-content: center; gap: 10px;">
+                            <button type="button" class="btn btn-primary" style="flex: 1;" id="pend_btnPrint" onclick="">PRINT</button>
+                            <button type="button" class="btn btn-warning" style="flex: 1;" id="pend_btnDelete" onclick="">DELETE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 mb-0" style="height: 53vh; background-color: #F5F7FA; margin-top: 0.5em;">
+                <div class="row col-sm-12" style="margin-top: 2%;">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-sm-4 d-flex align-items-center">
+                            <label for="">PLATE NO:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control col-md-6" name="pend_PLATENO" id="pend_PLATENO" readonly>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row col-sm-12" style="margin-top: 2%;">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-sm-4 d-flex align-items-center">
+                            <label for="serial">WEIGHT:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control col-md-6" name="serial" id="serial" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 d-flex justify-content-center" style="height: 8vh; background-color: #F5F7FA; margin-top: 1vh; align-items: center;">
+                    <div style="display: flex; justify-content: center; gap: 10px;">
+                        <button type="button" class="btn btn-primary" style="flex: 1;" id="ADDW1" onclick="">ADD W1</button>
+                        <button type="button" class="btn btn-warning" style="flex: 1;" id="ADDW2" onclick="">ADD W2</button>
+                    </div>
+                </div>
+
+                <div class="row col-sm-12" style="margin-top: 2%;">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-sm-4 d-flex align-items-center">
+                            <label for="">1ST WEIGHT:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control col-md-6" name="pend_WEIGHT1" id="pend_WEIGHT1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row col-sm-12" style="margin-top: 2%;">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-sm-4 d-flex align-items-center">
+                            <label for="">2ND WEIGHT:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control col-md-6" name="pend_WEIGHT2" id="pend_WEIGHT2">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row col-sm-12" style="margin-top: 2%;">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-sm-4 d-flex align-items-center">
+                            <label for="">IN DATE:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="datetime-local" class="form-control col-md-6" name="pend_INDATE" id="pend_INDATE">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row col-sm-12" style="margin-top: 2%;">
+                    <div class="d-flex justify-content-center">
+                        <div class="col-sm-4 d-flex align-items-center">
+                            <label for="">OUT DATE:</label>
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="datetime-local" class="form-control col-md-6" name="pend_OUTDATE" id="pend_OUTDATE">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row col-sm-12" style="margin-top: 2%;">
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" name='btn' class="btn btn-info col-sm-3" value="Update" id="pend_btnUpdate" onclick="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid" id="addnew_container" style="display: none;">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center"
+            style="margin-left: -15px; margin-right: -15px; margin-top: -35px;">
+            <h6 style="color: white"> Add New </h6>
+        </nav>
+
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-md-4" style="background-color: #F5F7FA;">
+                <form id="crtForm">
+                    <div class="form-group" style="margin: 1em;">
+                        <label>PLATE NO:</label>
+                        <input type="text" class="form-control col-md-6" name="addnew_PLATENO" id="addnew_PLATENO" value="" required>
+                        <label style="margin-top: 1em;">DRIVER:</label>
+                        <input type="text" class="form-control col-md-6" name="addnew_DRIVER" id="addnew_DRIVER" value="">
+                        <label style="margin-top: 1em;">CUSTOMER:</label>
+                        <input type="text" class="form-control col-md-6" name="addnew_CUSTOMER" id="addnew_CUSTOMER" value="">
+                        <label style="margin-top: 1em;">SUPPLIER:</label>
+                        <input type="text" class="form-control col-md-6" name="addnew_SUPPLIER" id="addnew_SUPPLIER" value="">
+                        <label style="margin-top: 1em;">TRANSPOTER:</label>
+                        <input type="text" class="form-control col-md-6" name="addnew_TRANSPOTER" id="addnew_TRANSPOTER" value="">
+                        <label style="margin-top: 1em;">PRODUCT:</label>
+                        <input type="text" class="form-control col-md-6" name="addnew_PRODUCT" id="addnew_PRODUCT" value="">
+                    </div>
+
+                    <div class="d-flex justify-content-center" style="margin-top: 1em;">
+                        <input type="submit" id="btnSave" value="Save" class="btn btn-primary m-1">
+                        <input type="submit" id="btnUpdate" value="Update" class="btn btn-warning m-1">
+                        <input type="submit" id="btnDelete" value="Delete" class="btn btn-danger m-1">
+                        <input type="submit" id="btnClear" value="Clear" class="btn btn-success m-1">
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-8 justify-content-center">
+                <div style="height: 80vh; overflow: scroll; overflow-x: auto;">
+                    <table id="fetchtbl" class="table table-bordered" style="text-align: center;">
+                        <thead class="thead-dark" style="background-color: #2C3034; color: #ffff;">
+                            <tr>
+                                <th class="no-wrap">PLATE NO</th>
+                                <th class="no-wrap">DRIVER</th>
+                                <th class="no-wrap">CUSTOMER</th>
+                                <th class="no-wrap">SUPPLIER</th>
+                                <th class="no-wrap">TRANSPOTER</th>
+                                <th class="no-wrap">PRODUCT</th>
+                            </tr>
+                        </thead>
+                        <tbody id="crtlist">
+                            <!-- info -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid" id="download_container" style="display: none;">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center"
+            style="margin-left: -15px; margin-right: -15px; margin-top: -35px;">
+            <h6 style="color: white"> Download </h6>
+        </nav>
+
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-md-4" style="background-color: #F5F7FA;">
+                <form id="crtFormDown">
+                    <div class="form-group row d-flex align-items-center" style="margin: 1em;">
+
+                        <label class="col-sm-4" style="padding-top: 1em;">PLATE NO:</label>
+                        <div class="col-sm-8" style="padding-top: 1em;">
+                            <input type="text" class="form-control" name="down_PLATENO" id="down_PLATENO">
+                        </div>
+
+                        <label class="col-md-4" style="margin-top: 1em;">DRIVER:</label>
+                        <div class="col-sm-8" style="padding-top: 1em;">
+                            <input type="text" class="form-control col-md-6" name="down_DRIVER" id="down_DRIVER">
+                        </div>
+
+                        <label class="col-md-4" style="margin-top: 1em;">CUSTOMER:</label>
+                        <div class="col-sm-8" style="padding-top: 1em;">
+                            <input type="text" class="form-control col-md-6" name="down_CUSTOMER" id="down_CUSTOMER">
+                        </div>
+
+                        <label class="col-md-4" style="margin-top: 1em;">SUPPLIER:</label>
+                        <div class="col-sm-8" style="padding-top: 1em;">
+                            <input type="text" class="form-control col-md-6" name="down_SUPPLIER" id="down_SUPPLIER">
+                        </div>
+
+                        <label class="col-md-4" style="margin-top: 1em;">TRANSPOTER:</label>
+                        <div class="col-sm-8" style="padding-top: 1em;">
+                            <input type="text" class="form-control col-md-6" name="down_TRANSPOTER" id="down_TRANSPOTER">
+                        </div>
+
+                        <label class="col-md-4" style="margin-top: 1em;">PRODUCT:</label>
+                        <div class="col-sm-8" style="padding-top: 1em;">
+                            <input type="text" class="form-control col-md-6" name="down_PRODUCT" id="down_PRODUCT">
+                        </div>
+
+                        <label class="col-md-4" style="padding-top: 1em;">DATE IN:</label>
+                        <div class="col-sm-8" style="padding-top: 1em;">
+                            <input type="datetime-local" class="form-control col-md-6" name="down_DATEIN" id="down_DATEIN">
+                        </div>
+
+                        <label class="col-md-4" style="padding-top: 1em;">DATE OUT:</label>
+                        <div class="col-sm-8" style="padding-top: 1em;">
+                            <input type="datetime-local" class="form-control col-md-6" name="down_DATEOUT" id="down_DATEOUT">
+                        </div>
+                    </div>
+        
+                    <div class="d-flex justify-content-center" style="margin-top: 2%;">
+                        <input type="submit" id="down_btnFilter" value="Filter" class="btn btn-primary m-1">
+                        <input type="submit" id="down_btnDownload" value="Download" class="btn btn-warning m-1">
+                        <input type="submit" id="down_btnClear" value="Clear" class="btn btn-success m-1">
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-8 justify-content-center">
+                <div style="height: 80vh; overflow: scroll; overflow-x: auto;">
+                    <table id="fetchdowntbl" class="table table-bordered" style="text-align: center;">
+                        <thead class="thead-dark" style="background-color: #2C3034; color: #ffff;">
+                            <tr>
+                                <th class="no-wrap">PLATE NO</th>
+                                <th class="no-wrap">DRIVER</th>
+                                <th class="no-wrap">CUSTOMER</th>
+                                <th class="no-wrap">SUPPLIER</th>
+                                <th class="no-wrap">TRANSPOTER</th>
+                                <th class="no-wrap">PRODUCT</th>
+                                <th class="no-wrap">TICKET NO</th>
+                                <th class="no-wrap">NOTE</th>
+                                <th class="no-wrap">DATE IN</th>
+                                <th class="no-wrap">DATE OUT</th>
+                                <th class="no-wrap">1st WEIGHT</th>
+                                <th class="no-wrap">2nd WEIGHT</th>
+                                <th class="no-wrap">NETWEIGHT</th>
+                            </tr>
+                        </thead>
+                        <tbody id="downloadTbl">
+                            <!-- info -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container-fluid" id="settings_container" style="display: none;">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center"
+            style="margin-left: -15px; margin-right: -15px; margin-top: -35px;">
+            <h6 style="color: white"> Settings </h6>
+        </nav>
+
+        <div class="d-flex justify-content-center" style="margin-top: 5vh;">
+            <form class="form-container col-sm-4" id="passwordForm">
+                <div class="form-group">
+                    <label for="username">Enter Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                </div>
+    
+                <div class="form-group" style="margin-top: 2vh;">
+                    <label for="currentPassword">Enter Current Password</label>
+                    <input type="password" class="form-control" id="currentPassword" placeholder="Current Password" required>
+                </div>
+    
+                <div class="form-group" style="margin-top: 2cqh;">
+                    <label for="newPassword">Enter New Password:</label>
+                    <input type="password" class="form-control" id="newPassword" placeholder="New Password" oninput="validatePassword()" required>
+                    <span id="passwordError" style="color: red;"></span>
+                </div>
+    
+                <div class="form-group" style="margin-top: 2vh;">
+                    <label for="retypePassword">Retype New Password:</label>
+                    <input type="password" class="form-control" id="retypePassword" placeholder="New Password" oninput="validatePassword()" required>
+                    <span id="retypeError" style="color: red;"></span>
+                </div>
+    
+                <div class="text-center" style="padding-top: 4vh;">
+                    <input type="submit" name='btn' id="changePass" class="btn btn-info col-md-4" value="Change">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="container-fluid" id="about_container" style="display: none;">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center"
+            style="margin-left: -15px; margin-right: -15px; margin-top: -35px;">
+            <h6 style="color: white"> About </h6>
+        </nav>
+
+        <section class="row justify-content-center" style="margin-top: 20vh;">
+            <h4 class="text-center font-weight-bold"> Scaler Weight Printing System </h4>
+            <h6 class="text-center">V <span id="Vno"></span></h6>
+        </section>
+    </section>
+
+    <script src="../lib/js/bootstrap.bundle.min.js"></script>
+    <script src="./preload.js"></script>
+</body>
+</html>

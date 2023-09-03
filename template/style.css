@@ -1,0 +1,27 @@
+body{
+    background: #383a3d;
+    padding-top: 5vh;
+}
+
+form{
+    background: #fff;
+}
+
+.form-container{
+    border-radius: 10px;
+    padding: 30px;
+}
+
+table tr:not(:first-child){
+    cursor: pointer;transition: all .25s ease-in-out;
+}
+
+table tr:not(:first-child):hover{background-color: #ddd;}
+
+.hideFromTbl {
+    display: none;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
